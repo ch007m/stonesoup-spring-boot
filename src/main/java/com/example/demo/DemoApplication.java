@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,11 @@ public class DemoApplication {
 
     @RequestMapping("/")
     String home() {
-        return "Hello World!";
+        return String.format("Welcome to the %s bar !",bar);
     }
+
+    @Value("${bar:jungle}")
+    private String bar;
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
