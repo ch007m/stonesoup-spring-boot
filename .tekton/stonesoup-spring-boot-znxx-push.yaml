@@ -26,10 +26,6 @@ spec:
     value: .
   - name: revision
     value: '{{revision}}'
-  - name: sast-snyk-check
-    params:
-      - name: SNYK_SECRET
-        value: snyk-token
   pipelineSpec:
     finally:
     - name: show-sbom
@@ -91,7 +87,7 @@ spec:
       description: Java build
       name: java
       type: string
-    - default: ""
+    - default: "snyk-token"
       description: Snyk Token Secret Name
       name: snyk-secret
       type: string
