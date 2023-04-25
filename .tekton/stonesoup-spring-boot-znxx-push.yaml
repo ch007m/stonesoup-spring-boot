@@ -71,7 +71,7 @@ spec:
       description: Force rebuild image
       name: rebuild
       type: string
-    - default: "true"
+    - default: "false"
       description: Skip checks against built image
       name: skip-checks
       type: string
@@ -286,7 +286,7 @@ spec:
       - input: $(params.skip-checks)
         operator: in
         values:
-        - "false"
+        - "true"
       - input: $(params.snyk-secret)
         operator: notin
         values:
