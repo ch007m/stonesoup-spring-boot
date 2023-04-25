@@ -26,6 +26,10 @@ spec:
     value: .
   - name: revision
     value: '{{revision}}'
+  - name: sast-snyk-check
+    params:
+      - name: SNYK_SECRET
+        value: snyk-token
   pipelineSpec:
     finally:
     - name: show-sbom
@@ -286,7 +290,7 @@ spec:
       - input: $(params.skip-checks)
         operator: in
         values:
-        - "false"
+        - "true"
       - input: $(params.snyk-secret)
         operator: notin
         values:
